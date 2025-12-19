@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-12-19T08:00:36-0300",
+    date = "2025-12-19T08:47:16-0300",
     comments = "version: 1.6.3, compiler: javac, environment: Java 21.0.6 (Oracle Corporation)"
 )
 @Component
@@ -20,13 +20,13 @@ public class TarefasMapperImpl implements TarefasMapper {
             return null;
         }
 
-        Tarefas.TarefasBuilder tarefas = Tarefas.builder();
+        Tarefas tarefas = new Tarefas();
 
-        tarefas.id( tarefasDTOR.idRequest() );
-        tarefas.nomeTarefa( tarefasDTOR.nomeTarefaRequest() );
-        tarefas.descricaoTarefa( tarefasDTOR.descricaoTarefaRequest() );
+        tarefas.setId( tarefasDTOR.idRequest() );
+        tarefas.setNomeTarefa( tarefasDTOR.nomeTarefaRequest() );
+        tarefas.setDescricaoTarefa( tarefasDTOR.descricaoTarefaRequest() );
 
-        return tarefas.build();
+        return tarefas;
     }
 
     @Override
@@ -35,12 +35,16 @@ public class TarefasMapperImpl implements TarefasMapper {
             return null;
         }
 
-        TarefasResponseDTOR.TarefasResponseDTORBuilder tarefasResponseDTOR = TarefasResponseDTOR.builder();
+        Integer idResponse = null;
+        String nomeTarefaResponse = null;
+        String descricaoTarefaResponse = null;
 
-        tarefasResponseDTOR.idResponse( tarefasEntity.getId() );
-        tarefasResponseDTOR.nomeTarefaResponse( tarefasEntity.getNomeTarefa() );
-        tarefasResponseDTOR.descricaoTarefaResponse( tarefasEntity.getDescricaoTarefa() );
+        idResponse = tarefasEntity.getId();
+        nomeTarefaResponse = tarefasEntity.getNomeTarefa();
+        descricaoTarefaResponse = tarefasEntity.getDescricaoTarefa();
 
-        return tarefasResponseDTOR.build();
+        TarefasResponseDTOR tarefasResponseDTOR = new TarefasResponseDTOR( idResponse, nomeTarefaResponse, descricaoTarefaResponse );
+
+        return tarefasResponseDTOR;
     }
 }

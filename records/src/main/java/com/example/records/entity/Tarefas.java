@@ -13,7 +13,7 @@ import lombok.*;
 public class Tarefas {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nomeTarefa;
     private String descricaoTarefa;

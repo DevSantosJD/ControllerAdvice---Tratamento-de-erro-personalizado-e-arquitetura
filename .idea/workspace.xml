@@ -5,31 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a29ee92f-cf3e-46f9-91fa-bcd34827e078" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/records.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/records/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/records/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/records/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/records/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/records/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/records/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/records/src/main/java/com/example/records/Mapper/TarefasMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/records/src/main/java/com/example/records/RecordsApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/records/src/main/java/com/example/records/controller/TarefasController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/records/src/main/java/com/example/records/entity/Tarefas.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/records/src/main/java/com/example/records/recordsDTO/TarefasRequesteDTOR.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/records/src/main/java/com/example/records/recordsDTO/TarefasResponseDTOR.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/records/src/main/java/com/example/records/repository/TarefasRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/records/src/main/java/com/example/records/service/TarefasService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/records/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/records/src/test/java/com/example/records/RecordsApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/records/Mapper/TarefasMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/records/src/main/java/com/example/records/controller/TarefasController.java" beforeDir="false" afterPath="$PROJECT_DIR$/records/src/main/java/com/example/records/controller/TarefasController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/records/src/main/java/com/example/records/entity/Tarefas.java" beforeDir="false" afterPath="$PROJECT_DIR$/records/src/main/java/com/example/records/entity/Tarefas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/records/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/records/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/records/Mapper/TarefasMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/records/Mapper/TarefasMapperImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,9 +28,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;DevSantosJD&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/DevSantosJD/Cria-o-de-DTOs-com-Records.git&quot;,
+    &quot;accountId&quot;: &quot;3bc49fa7-0c5e-4660-b3f7-95c99a6a727a&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="372Ri2Y92d7a01GTwmCHjqTuGcv" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -60,6 +52,7 @@
   "keyToString": {
     "Application.RecordsApplication.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
