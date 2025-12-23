@@ -2,6 +2,7 @@ package com.example.records.service;
 
 import com.example.records.Mapper.TarefasMapper;
 import com.example.records.entity.Tarefas;
+import com.example.records.exception.TarefaNaoEncontradaException;
 import com.example.records.recordsDTO.TarefasRequesteDTOR;
 import com.example.records.recordsDTO.TarefasResponseDTOR;
 import com.example.records.repository.TarefasRepository;
@@ -27,9 +28,9 @@ public class TarefasService {
         tarefasRepository.save(tarefasEntity);
     }
 
-    public TarefasResponseDTOR selecionarTarefa(Integer tarefaId){
+    public TarefasResponseDTOR selecionarTarefa(Integer tarefaId) throws TarefaNaoEncontradaException {
         Tarefas tarefaEntity = tarefasRepository.findById(tarefaId).
-                orElseThrow(()-> new RuntimeException("Tarefa não localizada"));
+                orElseThrow(()-> new TarefaNaoEncontradaException("Tarefa não localizada"));
         return tarefasMapper.toTarefasResponse(tarefaEntity);
     }
 }
