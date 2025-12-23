@@ -1,51 +1,152 @@
-# 📦 DTOs com `record` no Java (Spring Boot)
+# Atualização do Projeto – Tratamento de Exceções
 
-Este projeto tem como objetivo demonstrar o uso de **DTOs (Data Transfer Objects)** utilizando **`record` do Java**, destacando sua **relevância**, **vantagens** e **boas práticas** em aplicações **Spring Boot**.
+## 📌 Visão Geral
 
----
+Esta nova versão do projeto tem como principal demonstração a **evolução do tratamento de exceções**, com foco em padronização, reutilização e clareza na comunicação de erros via API.
 
-## 🚀 O que são DTOs?
+O objetivo é apresentar uma arquitetura limpa para **exceções personalizadas**, utilizando:
 
-DTOs (**Data Transfer Objects**) são objetos usados para **transportar dados entre camadas** da aplicação, principalmente entre:
-
-- Controller ↔ Service
-- API ↔ Cliente
-- Entity ↔ Response
-
-Eles evitam:
-- Expor diretamente entidades JPA
-- Acoplamento excessivo
-- Problemas de segurança
-- Dificuldade de manutenção
+* Hierarquia de exceções de negócio
+* Padronização de erros com `enum`
+* DTO para resposta de erro
+* Handler global centralizado
 
 ---
 
-## 🧠 Por que NÃO usar Entity diretamente?
+## 🎯 Principais Melhorias da Atualização
 
-Usar entidades JPA como entrada ou saída da API pode causar:
-
-❌ Exposição de campos sensíveis  
-❌ Dependência direta da estrutura do banco  
-❌ Problemas com serialização (`LazyInitializationException`)  
-❌ Dificuldade para evoluir a API  
-
-➡️ **DTOs resolvem esses problemas**.
+* Criação de um **pacote exclusivo para exceções**
+* Implementação de uma **exceção base de negócio** (`RuntimeException`)
+* Padronização dos tipos de erro usando `enum`
+* Retorno de erros estruturados no formato **DTO**
+* Centralização do tratamento de erros com `@ControllerAdvice`
 
 ---
 
-## 🆕 O que é `record` no Java?
+## 📂 Estrutura do Pacote de Exceções
 
-Introduzido no **Java 16**, o `record` é um tipo especial de classe **imutável**, ideal para representar **dados**.
-
-Exemplo simples:
-
-```java
-public record TarefaDTO(String nome, String descricao) {}
 ```
-## ⚠️ Quando NÃO usar record?
+exception
+ ├── ApiError.java
+ ├── ErrorType.java
+ ├── BusinessException.java
+ ├── GlobalExceptionHandler.java
+ ├── TarefaNaoEncontradaException.java
+```
 
-- Quando o objeto precisa ser mutável
+exception
+├── ApiError.java
+├── ErrorType.java
+├── GlobalExceptionHandler.java
+├── TarefaNaoEncontradaException.java
 
-- Quando há lógica complexa no objeto
+````
 
-- Em entidades JPA (não recomendado)
+---
+
+## 🧩 Descrição dos Componentes
+
+### 🔹 `BusinessException`
+
+Classe base para **exceções de negócio**, estendendo `RuntimeException`.
+
+Responsabilidades:
+- Centralizar comportamentos comuns das exceções de domínio
+- Garantir consistência no tratamento de regras de negócio
+- Facilitar a criação de novas exceções específicas
+
+Benefícios:
+- Redução de código duplicado
+- Melhor organização da hierarquia de exceções
+- Maior clareza semântica no domínio da aplicação
+
+---
+
+
+
+### 🔹 `ApiError`
+
+DTO responsável por representar o erro retornado pela API.
+
+Responsabilidades:
+- Padronizar a resposta de erro
+- Facilitar o consumo pelo cliente (frontend ou outras APIs)
+
+Campos comuns:
+- `status`
+- `error`
+- `message`
+- `timestamp`
+
+---
+
+### 🔹 `ErrorType`
+
+Enum utilizado para **padronizar os tipos de erro** da aplicação.
+
+Benefícios:
+- Evita mensagens de erro duplicadas
+- Centraliza códigos e descrições
+- Facilita manutenção e escalabilidade
+
+Exemplos de uso:
+- TAREFA_NAO_ENCONTRADA
+- ERRO_DE_NEGOCIO
+- ERRO_INTERNO
+
+---
+
+### 🔹 `TarefaNaoEncontradaException`
+
+Exceção específica de negócio lançada quando uma tarefa não é localizada.
+
+Características:
+- Estende a exceção base de negócio
+- Representa uma regra clara do domínio
+- Facilita o mapeamento direto para erros HTTP (ex: 404)
+
+---
+
+### 🔹 `GlobalExceptionHandler`
+
+Classe responsável por **interceptar e tratar exceções globalmente**.
+
+Utiliza:
+- `@ControllerAdvice`
+- `@ExceptionHandler`
+
+Responsabilidades:
+- Converter exceções em respostas HTTP padronizadas
+- Retornar objetos `ApiError`
+- Centralizar toda a lógica de tratamento de erros
+
+---
+
+## 📤 Exemplo de Resposta de Erro da API
+
+```json
+{
+  "status": 404,
+  "error": "TAREFA_NAO_ENCONTRADA",
+  "message": "Tarefa não encontrada com o ID informado",
+  "timestamp": "2025-01-01T14:30:00"
+}
+````
+
+---
+
+## ✅ Benefícios da Abordagem
+
+* Código mais organizado e legível
+* Tratamento de erros consistente
+* Facilidade para testes
+* Melhor experiência para o consumidor da API
+* Arquitetura preparada para crescimento
+
+---
+
+## 🚀 Considerações Finais
+
+Esta atualização reforça boas práticas no desenvolvimento de APIs REST, demonstrando como estruturar um **tratamento de exceções robusto, reutilizável e alinhado ao domínio da aplicação**.
+
+Ideal para projetos que buscam profissionalização e padronização desde as camadas internas até a comunicação com o cliente.
